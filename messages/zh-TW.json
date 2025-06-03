@@ -1,0 +1,242 @@
+{
+  "Common": {
+    "NoData": "無資料",
+    "NoDataDescription": "無符合搜尋條件的資料"
+  },
+  "Button": {
+    "Cancel": "取消",
+    "Update": "更新",
+    "Modify": "修改",
+    "Confirm": "確認",
+    "All": "全部",
+    "Bound": "已繫結",
+    "Login": "登入",
+    "SignUp": "註冊",
+    "More": "更多",
+    "Manage": "管理",
+    "Search": "查詢",
+    "Reset": "重置",
+    "Today": "今日",
+    "Yesterday": "昨日",
+    "Last7Days": "近7日",
+    "Last30Days": "近30日",
+    "DepositNow": "立即存款",
+    "ContactCustomerService": "聯絡客服",
+    "WithdrawNow": "立即託售"
+  },
+  "Layout": {
+    "Header": {
+      "Home": "首頁",
+      "Live": "真人",
+      "Sport": "體育",
+      "Electronic": "電子",
+      "Lottery": "彩票",
+      "Promotions": "優惠活動",
+      "Login": "登入",
+      "SignUp": "註冊"
+    },
+    "Footer": {
+      "Copyright": "©2024 Ur娛樂城. All Rights Reserves.",
+      "PrivacyPolicy": "隱私條款",
+      "Disclaimer": "免責條款",
+      "TermsOfService": "服務條款",
+      "FAQ": "常見問題",
+      "AboutUs": "關於我們",
+      "ContactUs": "聯絡我們"
+    }
+  },
+  "Auth": {
+    "Login": {
+      "ErrorTips": {
+        "EnterAccount": "請輸入帳號",
+        "EnterPassword": "請輸入密碼"
+      },
+      "EnterAccount": "請輸入帳號",
+      "EnterPassword": "請輸入密碼",
+      "RememberPassword": "記住密碼",
+      "ForgotPassword": "忘記密碼",
+      "NoAccount": "沒有帳號",
+      "RegisterNewAccount": "註冊新帳號",
+      "BrowseFirst": "先去逛逛",
+      "OnlineCustomerService": "線上客服"
+    },
+    "SignUp": {
+      "ErrorTips": {
+        "EnterAccount": "請輸入帳號",
+        "EnterCorrectEmail": "請輸入正確信箱",
+        "EnterVerificationCode": "請輸入驗證碼",
+        "EnterPassword": "請輸入密碼",
+        "EnterConfirmPassword": "請輸入確認密碼",
+        "CheckOver18": "請勾選我已年滿 18 歲",
+        "PasswordMismatch": "密碼與確認密碼不一致"
+      },
+      "Account": "帳號",
+      "Email": "信箱",
+      "VerificationCode": "驗證碼",
+      "GetVerificationCode": "獲取驗證碼",
+      "Password": "密碼",
+      "ConfirmPassword": "確認密碼",
+      "IAmOver18YearsOld": "我已年滿 18 歲",
+      "AlreadyHaveAnAccount": "已有帳號",
+      "BrowseFirst": "先去逛逛"
+    }
+  },
+  "Category": {
+    "Live": {
+      "Title": "真人遊戲廳",
+      "Description": "美女荷官視訊線上直播桌台，全場嚴密監控，提供最公平的遊戲環境。"
+    },
+    "Sport": {
+      "Title": "體育遊戲廳",
+      "Description": "涵蓋全球賽事，多元競猜玩法，賽事直播頻道免費看，讓您親臨現場觀賽樂在其中"
+    },
+    "Lottery": {
+      "Title": "彩票遊戲廳",
+      "Description": "經典彩種、創新玩法 超過百種彩票玩法任您贏。"
+    },
+    "Electronic": {
+      "Title": "電子遊戲廳",
+      "Description": "遊戲穩定、玩法多樣。提供多款在地化遊戲，給予會員多元便利的遊戲選擇。"
+    },
+    "Promotions": {
+      "Title": "優惠活動",
+      "AllPromotions": "全部優惠",
+      "LimitedTimeOffers": "限時活動",
+      "NewUserFirstDeposit": "新人首存",
+      "DailyActivities": "日常活動",
+      "HighRebate": "高額返水",
+      "VIPPrivileges": "VIP 特權"
+    }
+  },
+  "Dashboard": {
+    "CashIn": {
+      "Placeholder": {
+        "DepositAmountPlaceholder": "單筆存款金額 188-200000",
+        "MemberAccountPlaceholder": "請輸入會員帳號",
+        "TopUpAmountPlaceholder": "請輸入上分金額"
+      },
+      "ErrorTips": {
+        "EnterCorrectFormat": "請輸入正確格式",
+        "ValueGreaterThan188": "輸入值需大於 188",
+        "ValueLessThan200000": "輸入值須小於 200000",
+        "EnterCorrectMemberAccount": "請輸入正確會員帳號",
+        "EnterCorrectTopUpAmount": "請輸入正確上分金額"
+      },
+      "Sidebar": {
+        "DepositRecords": "存款記錄",
+        "Promotions": "優惠活動"
+      },
+      "NavName": "存點",
+      "CashIn": "存點",
+      "CashInDescription": "支付方式",
+      "PaymentTransfer": "支付轉帳",
+      "UWalletTransfer": "U錢包轉帳",
+      "BackendTopUp": "後臺上分",
+      "TransferInstructions": "請使用繫結的帳號轉帳，轉帳金額務必與訂單金額一致",
+      "DepositAmount": "存款金額",
+      "PaymentChannel": "支付通道",
+      "MemberAccount": "會員帳號",
+      "TopUpAmount": "上分金額"
+    },
+    "CashOut": {
+      "ErrorTips": {
+        "EnterCorrectFormat": "請輸入正確格式",
+        "MinimumSalesAmount": "最低託售金額100元"
+      },
+      "Placeholder": {
+        "CashOutWalletAddressPlaceholder": "請輸入區塊鏈錢包地址",
+        "CashOutAmountPlaceholder": "請輸入託售金額"
+      },
+      "Sidebar": {
+        "DepositRecords": "交易紀錄"
+      },
+      "NavName": "託售",
+      "CashOut": "託售金額",
+      "CentralWallet": "中心錢包",
+      "LockedWallet": "鎖定錢包",
+      "OneClickWithdraw": "一鍵收回",
+      "WalletDetails": "錢包明細",
+      "OneClickTransferIn": "一鍵轉入",
+      "CardManagement": "卡片管理",
+      "CardQuantity": "卡片數量",
+      "CashOutAmount": "託售金額",
+      "CashOutAmountDescription": "為了方便您快速託售，請先將所有場館錢包金額回收至中心錢包",
+      "CashOutTimes": "託售次數",
+      "CashOutTimesDescription": "今日可託售次數",
+      "CashOutLimit": "託售額度",
+      "CashOutLimitDescription": "今日可用額度",
+      "CashOutGate": "託售流水",
+      "CashOutGateDescription": "距離可託售所需流水",
+      "SalesLimit": "託售額度",
+      "SalesLimitDescription": "單次最高託售額度",
+      "ButtonTips": "請填寫對應區塊鏈之正確錢包地址",
+      "CashOutRecords": "託售記錄",
+      "FlowingWaterRecord": "流水記錄"
+    },
+    "TransactionHistory": {
+      "TableColumn": {
+        "Id": "ID",
+        "Date": "日期",
+        "OrderNo": "訂單編號",
+        "PaymentInfo": "繳費資訊",
+        "PaymentDeadline": "繳費期限",
+        "Amount": "金額",
+        "Status": "狀態"
+      },
+      "NavName": "交易紀錄",
+      "TransactionHistoryDescription": "當前系統支援查詢最近30日的交易紀錄",
+      "TransactionHistory": "交易紀錄",
+      "Type": "型別",
+      "Date": "日期",
+      "TotalDeposits": "累積存款",
+      "TotalSales": "累積託售",
+      "TotalReceivedOffers": "累積領取優惠"
+    },
+    "BettingHistory": {
+      "TableColumn": {
+        "Time": "時間",
+        "Type": "型別",
+        "TotalAmount": "遊戲總額",
+        "FlowRequirement": "流水要求",
+        "IncompleteFlowRequirement": "未完成流水要求",
+        "UpdateTime": "更新時間",
+        "Remarks": "備註"
+      },
+      "NavName": "投注記錄",
+      "BettingHistoryDescription": "當前系統支援查詢最近30日的交易紀錄",
+      "BettingHistory": "投注記錄",
+      "FlowingWaterRecord": "流水記錄",
+      "FlowingWaterRecordDescription": "提款須完成流水",
+      "BetAmount": "投注金額",
+      "ValidBet": "有效投注",
+      "WinLoss": "輸/贏"
+    },
+    "PersonalProfile": {
+      "Placeholder": {
+        "NameBankAccountMatch": "姓名需與銀行帳戶人姓名一致，否則無法託售",
+        "EnterLineId": "請輸入 Line ID"
+      },
+      "Sidebar": {
+        "TodayBettingRecord": "今日投注記錄",
+        "CardManagement": "卡片管理"
+      },
+      "NavName": "個人資料",
+      "PersonalInfo": "個人資料",
+      "BasicInformation": "基本資料",
+      "AccountSecurityLevel": "帳號安全等級",
+      "AccountSecurity": "帳號安全",
+      "PhoneNumber": "手機號碼",
+      "Email": "電子郵箱",
+      "LoginPassword": "登入密碼",
+      "FundPassword": "資金密碼",
+      "BankInformation": "銀行資料",
+      "Account": "帳號",
+      "RealName": "真實姓名",
+      "Sex": "性別",
+      "DateOfBirth": "出生日期",
+      "LineId": "LINE ID",
+      "RegistrationDate": "註冊日期",
+      "SecurityInformationPrompt": "為了確保您的帳戶安全，請您填寫相關安全資訊，以備不時之需"
+    }
+  }
+}

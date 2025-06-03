@@ -1,0 +1,15 @@
+services:
+  service:
+    image: registry.gitlab.com/gogogo2712128/bc-backend/bc-stage-web:latest
+    environment:
+      - Environment=${Environment}
+      - Port=${Port}
+      - BASE_URL=${BASE_URL}
+    ports:
+      - ${APP_PORT}:80
+    networks:
+      - bc-network
+    restart: always
+networks:
+  bc-network:
+    external: true

@@ -1,0 +1,1 @@
+export { default as DisclaimerView } from './disclaimer-view';

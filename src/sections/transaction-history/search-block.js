@@ -1,0 +1,217 @@
+'use client'
+
+import FormProvider from '@/components/hook-form/form-provider'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { memo, useCallback, useMemo, useState } from 'react'
+import { useForm } from 'react-hook-form'
+import { z } from 'zod'
+
+import { RHFSelect } from '@/components/hook-form/rhf-select'
+import { Button, MenuItem, TextField } from '@mui/material'
+import { DesktopDatePicker } from '@mui/x-date-pickers'
+import { startOfToday, endOfToday, startOfYesterday, endOfYesterday, subDays } from 'date-fns'
+import { useTranslations } from 'next-intl'
+import transRecordsAPI from '@/services/member/transRecords'
+import { NearDateButtons } from '@/components/nearDateButtons'
+import { useBoolean } from '@/hook/use-boolean'
+import { LoadingButton } from '@mui/lab'
+
+function SearchBlock({ onDataChange }) {
+  const t = useTranslations('Dashboard.TransactionHistory')
+  const tButton = useTranslations('Button')
+  const {
+    value: apiIsLoading,
+    onTrue: setApiIsLoadingTrue,
+    onFalse: setApiIsLoadingFalse,
+  } = useBoolean(false)
+
+  const mockTypeOptions = useMemo(
+    () => [
+      {
+        value: -1,
+        label: '全部',
+      },
+      {
+        value: 0,
+        label: '託售',
+      },
+      {
+        value: 1,
+        label: '存點',
+      },
+    ],
+    []
+  )
+
+  const [startDate, setStartDate] = useState(startOfToday())
+  const [endDate, setEndDate] = useState(endOfToday())
+
+  const handleStartDateChange = useCallback((newValue) => {
+    setStartDate(newValue)
+  }, [])
+  const handleEndDateChange = useCallback((newValue) => {
+    setEndDate(newValue)
+  }, [])
+
+  const schema = z.object({
+    type: z.union([z.literal(-1), z.literal(0), z.literal(1)]),
+  })
+
+  const defaultValues = {
+    type: mockTypeOptions[0].value,
+  }
+
+  const methods = useForm({
+    resolver: zodResolver(schema),
+    defaultValues,
+  })
+
+  const { reset, handleSubmit } = methods
+
+  const onSubmitButtonClick = useCallback(
+    async (data) => {
+      const payload = {
+        type: data.type === -1 ? null : data.type,
+        start_date: startDate,
+        end_date: endDate,
+      }
+
+      try {
+        setApiIsLoadingTrue()
+        const response = await transRecordsAPI(payload)()
+        onDataChange(response)
+      } catch (error) {
+        console.error(error)
+      } finally {
+        setApiIsLoadingFalse()
+      }
+    },
+    [endDate, onDataChange, setApiIsLoadingFalse, setApiIsLoadingTrue, startDate]
+  )
+
+  const handleResetButtonClick = useCallback(() => {
+    reset()
+    setStartDate(startOfToday())
+    setEndDate(endOfToday())
+  }, [reset])
+
+  const handleOnTodayClick = useCallback(() => {
+    setStartDate(startOfToday())
+    setEndDate(endOfToday())
+  }, [])
+
+  const handleOnYesterdayClick = useCallback(() => {
+    setStartDate(startOfYesterday())
+    setEndDate(endOfYesterday())
+  }, [])
+
+  const handleOnLast7DaysClick = useCallback(() => {
+    setStartDate(subDays(startOfToday(), 7))
+    setEndDate(endOfToday())
+  }, [])
+
+  const handleOnLast30DaysClick = useCallback(() => {
+    setStartDate(subDays(startOfToday(), 30))
+    setEndDate(endOfToday())
+  }, [])
+
+  return (
+    <div className="card">
+      <FormProvider methods={methods} onSubmit={handleSubmit(onSubmitButtonClick)}>
+        <div className="flex flex-col gap-y-4">
+          <div>
+            <h3 className="text-xl text-212529">{t('TransactionHistory')}</h3>
+            <p className="text-gray-400">{t('TransactionHistoryDescription')}</p>
+          </div>
+
+          {/* 查詢條件 */}
+          <div className="flex flex-col gap-y-4">
+            <div className="flex flex-row items-center gap-x-3">
+              <div className="w-14">{`${t('Type')}：`}</div>
+              <RHFSelect
+                disabled={apiIsLoading}
+                sx={{ flex: 1, maxWidth: '472px' }}
+                size="small"
+                name="type"
+                InputLabelProps={{ shrink: true }}
+                PaperPropsSx={{ textTransform: 'capitalize' }}
+              >
+                {mockTypeOptions.map((option) => (
+                  <MenuItem key={option.value} value={option.value}>
+                    {option.label}
+                  </MenuItem>
+                ))}
+              </RHFSelect>
+            </div>
+
+            <div className="flex flex-row items-center gap-x-3">
+              <div className="w-14">{`${t('Date')}：`}</div>
+              <div className="flex-1 flex flex-row items-center gap-x-3 max-w-[472px]">
+                <DesktopDatePicker
+                  disabled={apiIsLoading}
+                  inputFormat="yyyy/MM/dd"
+                  value={startDate}
+                  onChange={handleStartDateChange}
+                  renderInput={(params) => (
+                    <TextField fullWidth sx={{ flex: 1 }} size="small" {...params} />
+                  )}
+                />
+                {' - '}
+                <DesktopDatePicker
+                  disabled={apiIsLoading}
+                  inputFormat="yyyy/MM/dd"
+                  value={endDate}
+                  onChange={handleEndDateChange}
+                  renderInput={(params) => (
+                    <TextField fullWidth sx={{ flex: 1 }} size="small" {...params} />
+                  )}
+                />
+              </div>
+            </div>
+
+            <div className="flex flex-row items-center gap-x-3">
+              <div className="w-14" />
+              <NearDateButtons
+                disabled={apiIsLoading}
+                onTodayClick={handleOnTodayClick}
+                onYesterdayClick={handleOnYesterdayClick}
+                onLast7DaysClick={handleOnLast7DaysClick}
+                onLast30DaysClick={handleOnLast30DaysClick}
+              />
+            </div>
+          </div>
+
+          {/* 查詢按鈕 */}
+          <div className="flex flex-row gap-x-3">
+            <LoadingButton
+              loading={apiIsLoading}
+              type="submit"
+              variant="contained"
+              sx={{
+                px: '1.5rem',
+                borderRadius: 999,
+                background:
+                  'linear-gradient(180deg, rgba(166,209,255,1) 0%, rgba(0,123,255,1) 100%)',
+              }}
+            >
+              {tButton('Search')}
+            </LoadingButton>
+            <Button
+              disabled={apiIsLoading}
+              variant="outlined"
+              sx={{
+                px: '1.5rem',
+                borderRadius: 999,
+              }}
+              onClick={handleResetButtonClick}
+            >
+              {tButton('Reset')}
+            </Button>
+          </div>
+        </div>
+      </FormProvider>
+    </div>
+  )
+}
+
+export default memo(SearchBlock)

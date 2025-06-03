@@ -1,0 +1,1 @@
+export { default as AboutUsView } from './aboutus-view';

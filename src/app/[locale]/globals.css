@@ -1,0 +1,50 @@
+@import 'simplebar-react/dist/simplebar.min.css';
+@import url('https://fonts.googleapis.com/css2?family=Cabin:wght@400..700&family=Noto+Sans+TC:wght@100..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.home-hight-light-group {
+  --title-size: calc(0.625rem + 1vw);
+  --sub-title-size: calc(0.625rem + 1vw);
+  --description-size: calc(0.625rem + 1vw);
+}
+
+@media (min-width: 640px) {
+  .home-hight-light-group {
+    --title-size: calc(1rem + 0.5vw);
+    --sub-title-size: calc(1rem + 0.5vw);
+    --description-size: calc(1rem + 0.5vw);
+  }
+}
+
+@media (min-width: 1024px) {
+  .home-hight-light-group {
+    --title-size: calc(20.8px);
+    --sub-title-size: calc(1rem);
+    --description-size: calc(1rem);
+  }
+}
+
+@layer components {
+  .input-textfield {
+    @apply border-[1px] border-[#8e8e93] rounded-md p-2 px-4 outline-gray-500 outline-1;
+  }
+
+  .input-submit-button {
+    @apply text-white text-sm py-3 bg-button rounded-md;
+  }
+
+  .select {
+    @apply px-3;
+  }
+
+  .card {
+    @apply shadow-card px-6 py-4 bg-white rounded-lg;
+  }
+
+  .image {
+    @apply w-full h-full;
+  }
+}
